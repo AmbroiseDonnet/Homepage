@@ -11,6 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ambroise/designsystemlab": "github:AmbroiseDonnet/designsystemlab",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "scss": "^0.2.4"
