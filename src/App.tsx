@@ -1,96 +1,77 @@
+import { Badge, Button, Card, Grid, GridElement } from "@ambroise/designsystemlab";
+
 export default function App(){
     return (
-        <body>
+        <>
             <header className="hub-header">
             <div className="hub-title-block">
-                <div className="hub-label">ambroise-is-coding.fr</div>
-                <div className="hub-title">Project<span>_</span>Hub</div>
+                <h1 className="hub-label">ambroise-is-coding.fr</h1>
+                <h2 className="hub-title">Project<span>_</span>Hub</h2>
             </div>
             <div>
                 <div className="hub-meta">
                 <span className="dot"></span>
-                <span id="live-count">4 projets en ligne</span>
+                <Badge badgeType="accent">1 projets en ligne / 3</Badge>
                 </div>
             </div>
             </header>
+            <Grid cols={7} gap="md" rows={1}>
+                <GridElement><Button variant="secondary">Tous</Button></GridElement>
+                <GridElement><Button variant="secondary">Live</Button></GridElement>
+                <GridElement><Button variant="secondary">En cours</Button></GridElement>
+                <GridElement><Button variant="secondary">Outils</Button></GridElement>
+                <GridElement><Button variant="secondary">Perso</Button></GridElement>
+            </Grid>
 
-            <div className="filter-bar">
-            <button className="filter-btn active">Tous</button>
-            <button className="filter-btn">Live</button>
-            <button className="filter-btn">En cours</button>
-            <button className="filter-btn">Outils</button>
-            <button className="filter-btn">Perso</button>
-            </div>
-
-            <div className="projects-grid" id="grid">
-
-            <a className="project-card featured" href="https://portfolio.ambroise-is-coding.fr" target="_blank" data-status="live" data-type="perso">
-                <div className="card-top">
-                <div className="card-icon">🧑‍💻</div>
-                <div className="card-badges">
-                    <span className="badge badge-live">Live</span>
-                    <span className="badge badge-perso">Perso</span>
-                </div>
-                </div>
-                <div className="card-name">Portfolio</div>
-                <div className="card-desc">Présentation de mes projets, compétences et parcours. Vitrine principale, déployée en production via cPanel.</div>
-                <div className="card-tags">
-                <span className="tag">react</span>
-                <span className="tag">vite</span>
-                <span className="tag">typescript</span>
-                </div>
-                <div className="card-url">
-                portfolio.ambroise-is-coding.fr
-                <span className="card-url-arrow">→</span>
-                </div>
-            </a>
-
-            <div className="project-card" data-status="wip" data-type="tool">
-                <div className="card-top">
-                <div className="card-icon">🎴</div>
-                <div className="card-badges">
-                    <span className="badge badge-wip">WIP</span>
-                    <span className="badge badge-tool">Outil</span>
-                </div>
-                </div>
-                <div className="card-name">Fiche Creator</div>
-                <div className="card-desc">Générateur de fiches de présentation structurées pour créateurs de contenu. En développement.</div>
-                <div className="card-tags">
-                <span className="tag">ui</span>
-                <span className="tag">génération</span>
-                </div>
-                <div className="card-url">
-                — non déployé
-                <span className="card-url-arrow">→</span>
-                </div>
-            </div>
-
-            <div className="project-card" data-status="wip" data-type="tool">
-                <div className="card-top">
-                <div className="card-icon">📋</div>
-                <div className="card-badges">
-                    <span className="badge badge-wip">WIP</span>
-                    <span className="badge badge-tool">Outil</span>
-                </div>
-                </div>
-                <div className="card-name">Backlog App</div>
-                <div className="card-desc">Gestionnaire de backlog personnel pour tracker jeux, projets et idées. Interface minimaliste et rapide.</div>
-                <div className="card-tags">
-                <span className="tag">gestion</span>
-                <span className="tag">productivité</span>
-                </div>
-                <div className="card-url">
-                — non déployé
-                <span className="card-url-arrow">→</span>
-                </div>
-            </div>
-
-            </div>
+            <Grid cols={2} gap="2xl">
+                <GridElement>
+                    <Card accent={true} title="Portfolio">
+                        <Badge badgeType="success">Live</Badge>
+                        <Badge badgeType="neutral">Perso</Badge>
+                        <p className="card-desc">Présentation de mes projets, compétences et parcours. Vitrine principale, déployée en production via cPanel.</p>
+                        <div className="card-tags">
+                            <Badge badgeType="accent">react</Badge>
+                            <Badge badgeType="accent">vite</Badge>
+                            <Badge badgeType="accent">typescript</Badge>
+                        </div>
+                        <a href="https://portfolio.ambroise-is-coding.fr" target="_blank" rel="noopener noreferrer">
+                            <Button variant="primary" >
+                                portfolio.ambroise-is-coding.fr →
+                            </Button>
+                        </a>
+                    </Card>
+                </GridElement>
+                <GridElement>
+                    <Card title="Grimoire">
+                        <Badge badgeType="warning">WIP</Badge>
+                        <Badge badgeType="neutral">Outil</Badge>
+                        <p className="card-desc">Générateur de fiches de présentation structurées pour créateurs de contenu. En développement.</p>
+                        <div className="card-tags">
+                            <Badge badgeType="accent">ui</Badge>
+                            <Badge badgeType="accent">génération</Badge>
+                        </div>
+                        <Button variant="ghost" isDisabled={true}> non déployé →</Button>
+                    </Card>
+                </GridElement>
+                <GridElement>
+                    <Card title="Backlog App">
+                        <Badge badgeType="warning">WIP</Badge>
+                        <Badge badgeType="neutral">Outil</Badge>
+                        <p className="card-desc">Gestionnaire de backlog personnel pour tracker jeux, projets et idées. Interface minimaliste et rapide.</p>
+                        <div className="card-tags">
+                            <Badge badgeType="accent">gestion</Badge>
+                            <Badge badgeType="accent">productivité</Badge>
+                        </div>
+                        <Button variant="ghost" isDisabled={true}>
+                            non déployé →
+                        </Button>
+                    </Card>
+                </GridElement>
+            </Grid>
 
             <footer className="hub-footer">
-            <div className="footer-sig">Fait par <strong>Ambroise</strong> — ambroise-is-coding.fr</div>
-            <div className="footer-count" id="footer-count">4 / 4 projets affichés</div>
+                <div className="footer-sig">Fait par <strong>Ambroise</strong> - ambroise-is-coding.fr - Il y a 3 projets affichés</div>
             </footer>
-        </body>
+        </>
     );
 }
